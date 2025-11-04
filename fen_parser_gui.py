@@ -1,33 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-FEN Parser + Validador + Tablero GUI (Tkinter)
-Autor: ChatGPT (asistente)
-Compatibilidad: Python 3.8+ (Tkinter incluido)
-Uso:
-  - Ejecuta: python fen_parser_gui.py
-  - Pega una cadena FEN válida y pulsa "Validar y dibujar".
-  - Si es inválida, verás un mensaje de error con el tipo (léxico/sintaxis) y detalle.
-
-Notas de la rúbrica y decisiones de diseño (alineadas con la práctica):
-- Se implementa un "lexer" implícito para la parte de <Piece Placement> que
-  detecta caracteres no válidos (errores léxicos).
-- Se implementa un parser con validaciones sintácticas y semánticas mínimas
-  (conteo de columnas por fila, número de filas, campos obligatorios).
-- La gramática del PDF establece que en <ranki> los dígitos permitidos son '1'..'7'
-  y '8' solo cuando la fila completa es '8'. La implementación respeta esta regla.
-- Se valida: 6 campos, 8 filas, suma=8 por fila, 'w'|'b', enroques con {KQkq} o '-', 
-  en passant '-' o [a-h][36], halfmove entero >=0, fullmove entero >=1.
-- Interfaz: Tkinter, tablero 8x8 con casillas claras/oscuro y piezas Unicode.
-
-Valor agregado:
-- Botón “Ejemplos” con FEN válidos y uno inválido del enunciado.
-- Mensajes de error explicativos (con etiqueta de tipo de error: LÉXICO / SINTAXIS).
-- Conversión inmediata de FEN a matriz para la GUI.
-
-Licencia: Uso académico.
-"""
-
 from __future__ import annotations
 from dataclasses import dataclass
 from typing import List, Optional, Tuple
